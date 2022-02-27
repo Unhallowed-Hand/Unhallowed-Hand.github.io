@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/barcodes/JsBarcode.itf.min.js" integrity="sha512-Xy6E4/u+aH1i4Ia5j3vBwM0bqF+2hOs9u1XGJAgeVWQ+SBqpMG21vd7TNO3Yjl13hl34VdBUQXFGl4bIC3r3RA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+#tr_div {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#tr {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#barcode {
+  position: absolute;
+  transform: rotate(-90deg);
+  max-height: 100px;
+  top: 900px;
+  left: 675px;
+}
+</style>
+</head>
+
+<div id="tr_div">
+	<img id="tr" src="tr_300dpi.png" />
+	<img id="barcode"/>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+var number = params.get("b");
+
+//must be 10 digits
+if (number.length != 10 || number.match(/^[0-9]+$/) == null) {
+	number = "0000000000"
+}
+
+JsBarcode("#barcode")
+  .ITF(number, {textPosition: "top", font: "Arial", fontSize: 105, textMargin: 10, width: 10, height: 180})
+  .blank(20) // Create space between the barcodes
+  .render();
+</script>
+</html>
