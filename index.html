@@ -35,7 +35,7 @@ const params = new URLSearchParams(window.location.search);
 var number = params.get("b");
 
 //must be 10 digits
-if (number.length != 10 || number.match(/^[0-9]+$/) == null) {
+if (!number || number.length != 10 || number.match(/^[0-9]+$/) == null) {
 	number = "0000000000"
 }
 
