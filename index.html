@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div>
+	10-digit barcode number:
+	<input type="text" name="number" id="num" value="0123456789">
+	<button type="button" name="gen" onclick='generate()'>Generate!</button>
+</div>
+
+<script type="text/javascript">
+	function generate() {
+		var num = document.getElementById("num").value;
+		location.href = "barcode.html?b=" + num;
+	}
+</script>
+
+</body>
+</html>
