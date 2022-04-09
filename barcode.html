@@ -2,11 +2,14 @@
 <html>
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/barcodes/JsBarcode.itf.min.js" integrity="sha512-Xy6E4/u+aH1i4Ia5j3vBwM0bqF+2hOs9u1XGJAgeVWQ+SBqpMG21vd7TNO3Yjl13hl34VdBUQXFGl4bIC3r3RA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <style>
 #tr_div {
   position: relative;
   top: 0;
   left: 0;
+  display: inline-block;
 }
 
 #tr {
@@ -24,19 +27,21 @@
 }
 </style>
 </head>
+<body>
 
 <div id="tr_div">
-	<img id="tr" src="tr_300dpi.png" />
-	<img id="barcode"/>
+    <img id="tr" src="tr_300dpi.png">
+    <img id="barcode"/>
 </div>
 
-<script>
+<script type="text/javascript">
+/*Generate and place the barcode*/
 const params = new URLSearchParams(window.location.search);
 var number = params.get("b");
 
 //must be 10 digits
 if (!number || number.length != 10 || number.match(/^[0-9]+$/) == null) {
-	number = "0000000000"
+	number = "0000000000";
 }
 
 JsBarcode("#barcode")
@@ -44,4 +49,16 @@ JsBarcode("#barcode")
   .blank(20) // Create space between the barcodes
   .render();
 </script>
+
+<script type="text/javascript">
+/* Merge into a single image to allow download as image */
+html2canvas(document.querySelector("#tr_div")).then(canvas => {
+    document.body.appendChild(canvas);
+    
+    //hide the original rendering
+    document.getElementById("tr_div").style.display = "none";
+});
+</script>
+
+</body>
 </html>
