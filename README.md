@@ -1,10 +1,11 @@
 # LDS Temple Recommend Generator (Proof of Concept)
+Generator here: [https://unhallowed-hand.github.io/](https://unhallowed-hand.github.io/)
 
 **DISCLAIMER:** This generator and analysis is presented for entertainment and informational purposes, don't actually try to use it to get into a temple. Go watch the full 2 hour ceremony on YouTube if you want to know what it's all about.
 
-This is a security analysis for entering a Mormon temple, intended for the amusement of r/exmormon. This is based on my own experiences semi-regularly attending one temple as a TBM years ago and some insights from my exmo friend who worked at the same temple more recently (including the temple recommend desk).
+This is a Proof of Concept temple recommend generator and security analysis for entering a Mormon temple, intended for the amusement of r/exmormon. This is based on my own experiences semi-regularly attending one temple as a TBM years ago and some insights from my exmo friend who worked at the same temple more recently (including the temple recommend desk).
 
-**tl;dr**: Turns out you can pretty easily generate a blank recommend with any barcode number you want. If you printed it at the right size and marked the correct name, gender, and expiration date associated with that barcode then you could (probably? maybe?) get into the temple with it. The generator is here: [https://unhallowed-hand.github.io/](https://unhallowed-hand.github.io/)
+**tl;dr**: Turns out you can pretty easily generate a blank recommend with any barcode number you want. If you printed it at the right size and marked the correct name, gender, and expiration date associated with that barcode then you could (probably? maybe?) get into a temple with it.
 
 ## Issuing a Recommend
 
@@ -96,7 +97,7 @@ I haven't actually tried printing this, and getting it to come out at the right 
 * Generate the image
 * Open the Print dialog in your web broswer
 * Set the Margins to None
-* For a 8.5x11 paper, set the scale to 35 (3 / 8.5 = \~0.35)
+* For a 8.5x11 paper, set the scale to 32
 
 ## Other considerations
 
